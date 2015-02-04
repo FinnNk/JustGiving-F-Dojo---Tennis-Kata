@@ -54,7 +54,7 @@ let scoreGame = List.fold scorePoint (Points(Love, Love))
 let sampleGame = [PlayerA; PlayerA; PlayerB]
 
 sampleGame
-    |> scoreGame (Points(Love, Love))
+    |> scoreGame
 
 List.scan scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
 
