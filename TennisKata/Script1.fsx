@@ -45,8 +45,8 @@ let scorePoint currentScore player =
 let rec scoreGame currentScore pointsScored =
     match pointsScored with
     | [] -> currentScore
-    | x :: xs -> 
-        let newScore = scorePoint currentScore x
+    | point :: xs -> 
+        let newScore = scorePoint currentScore point
         scoreGame newScore xs
 
 let runGame = List.fold scorePoint (Points(Love, Love))
