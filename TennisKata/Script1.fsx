@@ -63,6 +63,8 @@ let createGame (input: string) =
     |> Array.map (function | 'A' -> PlayerA | 'B' -> PlayerB | _ -> failwith "Bad point!")
     |> List.ofArray
 
+test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
+
 let testScore input expected =
     let score =
         input
@@ -78,7 +80,7 @@ testScore "AAABBBB" (Advantage PlayerB)
 testScore "AAABBBBA" (Deuce)
 testScore "AAABBBBB" (Game PlayerB)
 
-test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
+
 
 scorePoint Deuce PlayerA
 scorePoint (Advantage PlayerB) PlayerA
