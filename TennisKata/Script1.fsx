@@ -49,6 +49,8 @@ let rec scoreGame currentScore pointsScored =
         let newScore = scorePoint currentScore x
         scoreGame newScore xs
 
+let runGame = List.fold scorePoint (Points(Love, Love))
+
 let sampleGame = [PlayerA; PlayerA; PlayerB]
 
 sampleGame
@@ -56,7 +58,7 @@ sampleGame
 
 List.scan scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
 
-let runGame = List.fold scorePoint (Points(Love, Love))
+
 
 let createGame (input: string) =
     input.ToCharArray()
