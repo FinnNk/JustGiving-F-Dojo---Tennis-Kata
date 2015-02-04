@@ -71,6 +71,7 @@ let testScore input expected =
     test <@ score = expected @>
 
 testScore "AAAA" (Game PlayerA)
+testScore "AAABBB" Deuce
 
 test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
 
