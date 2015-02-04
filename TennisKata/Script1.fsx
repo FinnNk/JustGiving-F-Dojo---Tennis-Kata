@@ -13,7 +13,7 @@ type GameScore =
 
 type PointsScored = Player list
 
-let score point =
+let simpleScore point =
     match point with
     | Love -> Fifteen
     | Fifteen -> Thirty 
