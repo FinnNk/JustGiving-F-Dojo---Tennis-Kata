@@ -49,9 +49,23 @@ let rec scoreGame currentScore pointsScored =
 
 List.fold scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
 
-[PlayerA; PlayerA; PlayerB]
-    |> List.fold scorePoint (Points(Love, Love))
+let runGame = List.fold scorePoint (Points(Love, Love))
+
+let createGame (input: string) =
+    input.ToCharArray()
+    |> Array.map (fun c -> match c with | 'A' -> PlayerA | 'B' -> PlayerB | _ -> failwith "Bad point!")
+    |> List.ofArray
+
+let testScore input expected =
+    let score =
+        input
+        |> createGame
+        |> runGame
+    test <@ score = expected @>
+
+testScore "AAAA" (Game PlayerA)
 
 test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
+
 scorePoint Deuce PlayerA
 scorePoint (Advantage PlayerB) PlayerA
