@@ -24,14 +24,11 @@ let scoreDeuce points = if points = Points(Forty, Forty) then Deuce else points
 
 let scorePoint currentScore player =
     match currentScore, player with
-    | Points(Thirty, Forty), PlayerA -> Deuce
-    | Points(Forty, Thirty), PlayerB -> Deuce
-
     | Points(Forty, _), PlayerA -> Game PlayerA
     | Points(_, Forty), PlayerB -> Game PlayerB
 
-    | Points(pointsA, pointsB), PlayerA -> Points(simpleScore pointsA, pointsB)
-    | Points(pointsA, pointsB), PlayerB -> Points(pointsA, simpleScore pointsB)
+    | Points(pointsA, pointsB), PlayerA -> Points(simpleScore pointsA, pointsB) |> scoreDeuce
+    | Points(pointsA, pointsB), PlayerB -> Points(pointsA, simpleScore pointsB) |> scoreDeuce
     
     | Deuce, player -> Advantage player
 
