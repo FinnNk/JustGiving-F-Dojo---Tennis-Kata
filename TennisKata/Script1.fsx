@@ -44,6 +44,10 @@ let rec scoreGame currentScore pointsScored =
         let newScore = scorePoint currentScore x 
         scoreGame newScore xs
 
+[PlayerA; PlayerA; PlayerB]
+    |> scoreGame (Points(Love, Love))
+
+
 
 test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
 scorePoint Deuce PlayerA
