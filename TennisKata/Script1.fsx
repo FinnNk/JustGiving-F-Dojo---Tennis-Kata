@@ -24,6 +24,7 @@ let scorePoint currentScore player =
     match currentScore, player with
     | Points(Thirty, Forty), PlayerA -> Deuce
     | Points(Forty, Thirty), PlayerB -> Deuce
+
     | Points(Forty, _), PlayerA -> Game PlayerA
     | Points(_, Forty), PlayerB -> Game PlayerB
 
