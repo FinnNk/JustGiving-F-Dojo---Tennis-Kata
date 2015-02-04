@@ -69,6 +69,8 @@ let testScore input expected =
     test <@ score = expected @>
 
 
+testScore "A" (Points(Fifteen, Love))
+testScore "AA" (Points(Thirty, Love))
 testScore "AAA" (Points(Forty, Love))
 testScore "AAAA" (Game PlayerA)
 testScore "AAABBB" Deuce
