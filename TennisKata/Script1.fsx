@@ -42,14 +42,14 @@ let scorePoint currentScore player =
     | Game winner, _ -> Game winner
 
 
-let rec scoreGame currentScore pointsScored =
+let rec scoreGame' currentScore pointsScored =
     match pointsScored with
     | [] -> currentScore
     | point :: points -> 
         let newScore = scorePoint currentScore point
-        scoreGame newScore points
+        scoreGame' newScore points
 
-let runGame = List.fold scorePoint (Points(Love, Love))
+let scoreGame = List.fold scorePoint (Points(Love, Love))
 
 let sampleGame = [PlayerA; PlayerA; PlayerB]
 
