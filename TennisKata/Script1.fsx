@@ -36,8 +36,6 @@ let scorePoint currentScore player =
 
     | Deuce, player -> Advantage player
 
-    
-
     | Game winner, _ -> Game winner
 
 
