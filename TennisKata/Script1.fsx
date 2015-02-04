@@ -20,7 +20,7 @@ let scorePoint currentScore player =
     | Points(Forty, _), PlayerA -> Game PlayerA
     
     | Advantage player, scorer when player = scorer -> Game player
-    | Advantage player, scorer-> Deuce
+    | Advantage player, scorer -> Deuce
 
     | Deuce, player -> Advantage player
 
