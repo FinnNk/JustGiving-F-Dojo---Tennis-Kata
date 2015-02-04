@@ -1,5 +1,5 @@
 ﻿#r @"..\packages\Unquote.2.2.2\lib\net40\Unquote.dll"
-
+open Swensen.Unquote
 
 type Player = PlayerA | PlayerB
 
@@ -35,6 +35,6 @@ let scorePoint currentScore player =
 
     | Game winner, _ -> Game winner
 
-scorePoint (Points(Love, Love)) PlayerA
+test <@scorePoint (Points(Love, Love)) PlayerA = Points (Love,Love)@>
 scorePoint Deuce PlayerA
 scorePoint (Advantage PlayerB) PlayerA
