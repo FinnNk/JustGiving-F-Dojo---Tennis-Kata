@@ -13,6 +13,13 @@ type GameScore =
 
 type PointsScored = Player list
 
+let score point =
+    match point with
+    | Love -> Fifteen
+    | Fifteen -> Thirty 
+    | Thirty -> Forty
+    | Forty -> invalidOp "Should never be trying to score from Forty"
+
 let scorePoint currentScore player =
     match currentScore, player with
     | Points(Love, pointsB), PlayerA -> Points(Fifteen, pointsB)
