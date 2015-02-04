@@ -67,7 +67,7 @@ let testScore input expected =
     let score =
         input
         |> createGame
-        |> runGame
+        |> scoreGame
     test <@ score = expected @>
 
 testScore "AAAA" (Game PlayerA)
