@@ -80,7 +80,5 @@ testScore "AAABBBB" (Advantage PlayerB)
 testScore "AAABBBBA" (Deuce)
 testScore "AAABBBBB" (Game PlayerB)
 
-
-
 scorePoint Deuce PlayerA
 scorePoint (Advantage PlayerB) PlayerA
