@@ -18,3 +18,16 @@ let scorePoint currentScore player =
     | Points(Forty, _), PlayerA -> Game PlayerA
     | Deuce, PlayerA -> Advantage PlayerA
     | Advantage PlayerA, PlayerA -> Game PlayerA
+
+    | Advantage PlayerA, PlayerB -> Deuce
+    | Advantage PlayerB, PlayerA -> Deuce
+
+    | Points(pointsA, Love), PlayerB -> Points(pointsA, Fifteen)
+    | Points(pointsA, Fifteen), PlayerB -> Points(pointsA, Thirty)
+    | Points(Forty, Thirty), PlayerB -> Deuce
+    | Points(pointsA, Thirty), PlayerB -> Points(pointsA, Forty)
+    | Points(_, Forty), PlayerB -> Game PlayerB
+    | Deuce, PlayerB -> Advantage PlayerB
+    | Advantage PlayerB, PlayerB -> Game PlayerB
+
+    | Game winner, _ -> Game winner
