@@ -53,7 +53,7 @@ let runGame = List.fold scorePoint (Points(Love, Love))
 
 let createGame (input: string) =
     input.ToCharArray()
-    |> Array.map (fun c -> match c with | 'A' -> PlayerA | 'B' -> PlayerB | _ -> failwith "Bad point!")
+    |> Array.map (function | 'A' -> PlayerA | 'B' -> PlayerB | _ -> failwith "Bad point!")
     |> List.ofArray
 
 let testScore input expected =
