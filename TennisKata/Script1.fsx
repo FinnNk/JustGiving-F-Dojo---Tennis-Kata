@@ -22,10 +22,12 @@ let simpleScore point =
 
 let scorePoint currentScore player =
     match currentScore, player with
-    | Points(pointsA, pointsB), PlayerA -> Points(simpleScore pointsA, pointsB)
-    | Points(Fifteen, pointsB), PlayerA -> Points(Thirty, pointsB)
     | Points(Thirty, Forty), PlayerA -> Deuce
-    | Points(Thirty, pointsB), PlayerA -> Points(Forty, pointsB)
+    | Points(Forty, Thirty), PlayerB -> Deuce
+    
+    | Points(pointsA, pointsB), PlayerA -> Points(simpleScore pointsA, pointsB)
+    | Points(pointsA, pointsB), PlayerB -> Points(pointsA, simpleScore pointsB)
+    
     | Points(Forty, _), PlayerA -> Game PlayerA
     
     | Advantage player, scorer when player = scorer -> Game player
@@ -35,7 +37,7 @@ let scorePoint currentScore player =
 
     | Points(pointsA, Love), PlayerB -> Points(pointsA, Fifteen)
     | Points(pointsA, Fifteen), PlayerB -> Points(pointsA, Thirty)
-    | Points(Forty, Thirty), PlayerB -> Deuce
+    
     | Points(pointsA, Thirty), PlayerB -> Points(pointsA, Forty)
     | Points(_, Forty), PlayerB -> Game PlayerB
 
