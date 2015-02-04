@@ -31,8 +31,6 @@ let scorePoint currentScore player =
     | Points(pointsA, pointsB), PlayerA -> Points(simpleScore pointsA, pointsB)
     | Points(pointsA, pointsB), PlayerB -> Points(pointsA, simpleScore pointsB)
     
-    
-    
     | Advantage player, scorer when player = scorer -> Game player
     | Advantage _, _ -> Deuce
 
