@@ -69,7 +69,7 @@ let testScore input expected =
     test <@ score = expected @>
 
 
-testScore "AAAA" (Game PlayerA)
+testScore "AAA" (Points(Forty, Love))
 testScore "AAAA" (Game PlayerA)
 testScore "AAABBB" Deuce
 testScore "AAABBBB" (Advantage PlayerB)
