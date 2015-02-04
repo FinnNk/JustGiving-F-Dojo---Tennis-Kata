@@ -22,7 +22,7 @@ let simpleScore point =
 
 let scorePoint currentScore player =
     match currentScore, player with
-    | Points(Love, pointsB), PlayerA -> Points(Fifteen, pointsB)
+    | Points(pointsA, pointsB), PlayerA -> Points(simpleScore pointsA, pointsB)
     | Points(Fifteen, pointsB), PlayerA -> Points(Thirty, pointsB)
     | Points(Thirty, Forty), PlayerA -> Deuce
     | Points(Thirty, pointsB), PlayerA -> Points(Forty, pointsB)
