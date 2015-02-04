@@ -41,13 +41,16 @@ let rec scoreGame currentScore pointsScored =
     match pointsScored with
     | [] -> currentScore
     | x :: xs -> 
-        let newScore = scorePoint currentScore x 
+        let newScore = scorePoint currentScore x
         scoreGame newScore xs
 
 [PlayerA; PlayerA; PlayerB]
     |> scoreGame (Points(Love, Love))
 
+List.fold scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
 
+[PlayerA; PlayerA; PlayerB]
+    |> List.fold scorePoint (Points(Love, Love))
 
 test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
 scorePoint Deuce PlayerA
