@@ -58,8 +58,6 @@ sampleGame
 
 List.scan scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
 
-
-
 let createGame (input: string) =
     input.ToCharArray()
     |> Array.map (function | 'A' -> PlayerA | 'B' -> PlayerB | _ -> failwith "Bad point!")
