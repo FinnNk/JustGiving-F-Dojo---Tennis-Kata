@@ -20,7 +20,7 @@ let simpleScore point =
     | Thirty -> Forty
     | Forty -> invalidOp "Should never be trying to score from Forty"
 
-let scoreDeuce points = if points = Points(Forty, Forty) then Deuce
+let scoreDeuce points = if points = Points(Forty, Forty) then Deuce else points
 
 let scorePoint currentScore player =
     match currentScore, player with
