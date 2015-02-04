@@ -35,6 +35,6 @@ let scorePoint currentScore player =
 
     | Game winner, _ -> Game winner
 
-test <@scorePoint (Points(Love, Love)) PlayerA = Points (Love,Love)@>
+test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
 scorePoint Deuce PlayerA
 scorePoint (Advantage PlayerB) PlayerA
