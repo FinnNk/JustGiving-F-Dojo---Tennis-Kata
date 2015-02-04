@@ -47,7 +47,7 @@ let rec scoreGame currentScore pointsScored =
 [PlayerA; PlayerA; PlayerB]
     |> scoreGame (Points(Love, Love))
 
-List.fold scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
+List.scan scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
 
 let runGame = List.fold scorePoint (Points(Love, Love))
 
