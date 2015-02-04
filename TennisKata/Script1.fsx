@@ -11,6 +11,8 @@ type GameScore =
     | Advantage of Player
     | Game of Player
 
+type PointsScored = Player list
+
 let scorePoint currentScore player =
     match currentScore, player with
     | Points(Love, pointsB), PlayerA -> Points(Fifteen, pointsB)
@@ -31,6 +33,17 @@ let scorePoint currentScore player =
     | Points(_, Forty), PlayerB -> Game PlayerB
 
     | Game winner, _ -> Game winner
+
+
+[PlayerA; PlayerA; PlayerB]
+
+let rec scoreGame currentScore pointsScored =
+    match pointsScored with
+    | [] -> currentScore
+    | x :: xs -> 
+        let newScore = scorePoint currentScore x 
+        scoreGame newScore xs
+
 
 test <@scorePoint (Points(Love, Love)) PlayerA = Points (Fifteen,Love)@>
 scorePoint Deuce PlayerA
