@@ -29,7 +29,6 @@ let scorePoint currentScore player =
     | Points(Forty, Thirty), PlayerB -> Deuce
     | Points(pointsA, Thirty), PlayerB -> Points(pointsA, Forty)
     | Points(_, Forty), PlayerB -> Game PlayerB
-    
 
     | Game winner, _ -> Game winner
 
