@@ -42,8 +42,6 @@ let scorePoint currentScore player =
     | Game winner, _ -> Game winner
 
 
-[PlayerA; PlayerA; PlayerB]
-
 let rec scoreGame currentScore pointsScored =
     match pointsScored with
     | [] -> currentScore
@@ -51,7 +49,9 @@ let rec scoreGame currentScore pointsScored =
         let newScore = scorePoint currentScore x
         scoreGame newScore xs
 
-[PlayerA; PlayerA; PlayerB]
+let sampleGame = [PlayerA; PlayerA; PlayerB]
+
+sampleGame
     |> scoreGame (Points(Love, Love))
 
 List.scan scorePoint (Points(Love, Love)) [PlayerA; PlayerA; PlayerB]
